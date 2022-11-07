@@ -1,0 +1,66 @@
+.login {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5) 20%,
+      rgba(0, 0, 0, 1) 100%
+    ),
+    url("https://images.squarespace-cdn.com/content/v1/55f32473e4b029b54a7228d2/1466543065801-EHV8I3WTFMBVWR9W2Q8G/60%20Best%20Girls'%20Night%20Movies?format=1000w");
+  position: relative;
+  .top {
+    .wrapper {
+      padding: 20px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .logo {
+        height: 40px;
+      }
+    }
+  }
+  .container {
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+
+    form {
+      width: 300px;
+      height: 300px;
+      padding: 30px;
+      border-radius: 5px;
+      background-color: var(--main-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      input {
+        height: 40px;
+        border-radius: 5px;
+        padding-left: 10px;
+      }
+      button {
+        height: 40px;
+        border-radius: 5px;
+        background-color: red;
+        color: white;
+        border: none;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+      span {
+        color: lightgray;
+        b {
+          color: white;
+        }
+      }
+    }
+  }
+}

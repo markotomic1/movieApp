@@ -1,0 +1,34 @@
+.newProduct {
+  flex: 4;
+}
+.productTitle {
+  font-size: 25px;
+}
+.newProductForm {
+  margin-left: 20px;
+}
+.newProductItem {
+  margin: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+.newProductItem > input,
+.newProductItem > select {
+  padding: 10px;
+}
+.newProductItem > label {
+  margin: 5px 0px;
+  color: gray;
+}
+.newPorductButton {
+  margin-top: 20px;
+  border: none;
+  padding: 20px;
+  width: 250px;
+  background-color: rgb(74, 110, 227);
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+}

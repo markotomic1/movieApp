@@ -1,0 +1,51 @@
+.widgetLg {
+  flex: 2;
+  box-shadow: 0px 1px 15px -4px rgba(0, 0, 0, 0.47);
+  -webkit-box-shadow: 0px 1px 15px -4px rgba(0, 0, 0, 0.47);
+  -moz-box-shadow: 0px 1px 15px -4px rgba(0, 0, 0, 0.47);
+  padding: 20px;
+}
+.widgetLgTitle {
+  font-size: 22px;
+  font-weight: 600;
+}
+.widgetLgTable {
+  width: 100%;
+  border-spacing: 20px;
+}
+.widgetLgTh {
+  text-align: left;
+}
+.widgetLgUser {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+.widgetLgDate,
+.widgetLgAmount {
+  font-weight: 300;
+}
+.widgetLgImg {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.widgetLgButton {
+  padding: 5px 7px;
+  border: none;
+  border-radius: 10px;
+}
+.widgetLgButton.approved {
+  background-color: rgb(197, 250, 197);
+  color: darkgreen;
+}
+.widgetLgButton.declined {
+  background-color: rgb(224, 146, 144);
+  color: darkred;
+}
+.widgetLgButton.pending {
+  background-color: rgb(183, 221, 241);
+  color: rgb(17, 48, 126);
+}

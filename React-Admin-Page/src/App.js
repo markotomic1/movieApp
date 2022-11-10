@@ -9,23 +9,40 @@ import NewUser from "./pages/newUser/NewUser";
 import ProductsList from "./pages/productList/ProductsList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
+import Login from "./pages/login/Login";
+import { useContext } from "react";
+import { AuthContext } from "./context/authContext/AuthContext";
+import { Navigate } from "react-router-dom";
 
 function App() {
+  const { user } = useContext(AuthContext);
+
   return (
     <Router>
-      <Topbar />
-      <div className='container'>
-        <Sidebar />
+      {user ? (
+        <>
+          <Topbar />
+          <div className='container'>
+            <Sidebar />
+
+            <Routes>
+              <Route path='/' element={<Home />} exact />
+              <Route path='/users' element={<UserList />} />
+              <Route path='/user/:userId' element={<User />} />
+              <Route path='/newUser' element={<NewUser />} />
+              <Route path='/movies' element={<ProductsList />} />
+              <Route path='/product/:id' element={<Product />} />
+              <Route path='/newProduct' element={<NewProduct />} />
+              <Route path='/login' element={<Navigate to='/' />} />
+            </Routes>
+          </div>
+        </>
+      ) : (
         <Routes>
-          <Route path='/' element={<Home />} exact />
-          <Route path='/users' element={<UserList />} />
-          <Route path='/user/:userId' element={<User />} />
-          <Route path='/newUser' element={<NewUser />} />
-          <Route path='/products' element={<ProductsList />} />
-          <Route path='/product/:product' element={<Product />} />
-          <Route path='/newProduct' element={<NewProduct />} />
+          <Route path='/' element={<Navigate to='/login' />} exact />
+          <Route path='/login' element={<Login />} />
         </Routes>
-      </div>
+      )}
     </Router>
   );
 }

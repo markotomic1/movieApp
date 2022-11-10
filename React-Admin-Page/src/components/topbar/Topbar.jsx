@@ -2,8 +2,15 @@ import "./topbar.css";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import LanguageIcon from "@mui/icons-material/Language";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-
+import { useContext } from "react";
+import { AuthContext } from "../../context/authContext/AuthContext";
+import { logoutFunc } from "../../context/authContext/apiCalls";
 function Topbar() {
+  const { dispatch } = useContext(AuthContext);
+
+  const handleClick = () => {
+    logoutFunc(dispatch);
+  };
   return (
     <div className='topbar'>
       <div className='topbarWrapper'>
@@ -22,11 +29,16 @@ function Topbar() {
           <div className='topbarIcons'>
             <SettingsOutlinedIcon />
           </div>
-          <img
-            src='https://cdn.pixabay.com/photo/2016/12/26/18/33/logo-1932539__340.png'
-            alt=''
-            className='topAvatar'
-          />
+          <div className='profileLogout'>
+            <span className='logout' onClick={handleClick}>
+              Logout
+            </span>
+            <img
+              src='https://cdn.pixabay.com/photo/2016/12/26/18/33/logo-1932539__340.png'
+              alt=''
+              className='topAvatar'
+            />
+          </div>
         </div>
       </div>
     </div>

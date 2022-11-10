@@ -37,10 +37,10 @@ function Sidebar() {
                 Users
               </li>
             </Link>
-            <Link to='/products' className='link'>
+            <Link to='/movies' className='link'>
               <li className='sidebarListItem'>
                 <TimelineOutlinedIcon className='sidebarIcon' />
-                Products
+                Movies
               </li>
             </Link>
             <li className='sidebarListItem'>

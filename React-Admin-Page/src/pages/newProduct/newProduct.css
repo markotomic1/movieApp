@@ -6,26 +6,30 @@
 }
 .newProductForm {
   margin-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .newProductItem {
-  margin: 20px 0px;
+  margin: 8px 0px;
   display: flex;
   flex-direction: column;
   width: 250px;
+  padding: 15px;
 }
 .newProductItem > input,
 .newProductItem > select {
-  padding: 10px;
+  padding: 8px;
 }
 .newProductItem > label {
-  margin: 5px 0px;
+  margin: 2px 0px;
   color: gray;
 }
 .newPorductButton {
-  margin-top: 20px;
+  margin-top: 10px;
   border: none;
-  padding: 20px;
-  width: 250px;
+  margin-left: 15px;
+  padding: 10px;
+  width: 200px;
   background-color: rgb(74, 110, 227);
   color: white;
   font-weight: 600;

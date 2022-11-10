@@ -32,7 +32,7 @@ const ListItem = ({ index, item }) => {
     };
     getMovie();
   }, [item]);
-
+  //console.log(movie);
   return (
     <Link to={{ pathname: "/watch", state: { movie } }}>
       <div
@@ -54,11 +54,11 @@ const ListItem = ({ index, item }) => {
               </div>
               <div className='itemInfoTop'>
                 <span></span>
-                <span className='limit'>{movie.limit}</span>
-                <span>{movie.year}</span>
+                <span className='limit'>{movie?.limit}</span>
+                <span>{movie?.year}</span>
               </div>
-              <div className='desc'>{movie.desc}</div>
-              <div className='genre'>{movie.genre}</div>
+              <div className='desc'>{movie?.desc}</div>
+              <div className='genre'>{movie?.genre}</div>
             </div>
           </>
         )}

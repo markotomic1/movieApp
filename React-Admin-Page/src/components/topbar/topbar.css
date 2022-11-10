@@ -48,3 +48,26 @@
   border-radius: 50%;
   cursor: pointer;
 }
+.profileLogout {
+  display: flex;
+  align-items: center;
+}
+.profileLogout img {
+  margin-left: 10px;
+}
+.logout {
+  display: none;
+  text-align: center;
+  width: 100px;
+  padding: 10px;
+  margin-left: 20px;
+}
+.profileLogout:hover {
+  display: flex;
+  background-color: rgb(184, 182, 182);
+  border-radius: 5px;
+}
+.profileLogout:hover .logout {
+  display: inline;
+  cursor: pointer;
+}

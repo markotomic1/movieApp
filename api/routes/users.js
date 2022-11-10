@@ -60,7 +60,7 @@ router.get("/", verifyFunc, async (req, res) => {
   if (req.user.isAdmin) {
     try {
       const users = query
-        ? await User.find().sort({ _id: -1 }).limit(10)
+        ? await User.find().sort({ _id: -1 }).limit(5)
         : await User.find();
       if (users) {
         const info = users.map((user) => {

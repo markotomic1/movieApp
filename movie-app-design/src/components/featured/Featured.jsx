@@ -1,12 +1,37 @@
 import "./featured.scss";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 const Featured = ({ type }) => {
+  const [content, setContent] = useState({});
+
+  useEffect(() => {
+    const getRandomContent = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:8800/api/movies/random?type=${type}`,
+          {
+            headers: {
+              token:
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNjk4MWNkMjYzYWM3ZWEyZDVhNmNiNyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY2ODA4ODMwNSwiZXhwIjoxNjY4NTIwMzA1fQ.Ajra6QB053PhVkQh8utMlkwlWI54VnWzQ9cplLzIZoU",
+            },
+          }
+        );
+        setContent(res.data[0]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getRandomContent();
+  }, [type]);
+  console.log(content);
   return (
     <div className='featured'>
       {type && (
         <div className='category'>
-          <span>{type === "movie" ? "Movies" : "Series"}</span>
+          <span>{type === "movies" ? "Movies" : "Series"}</span>
           <select name='genre' id='genre'>
             <option>Genre</option>
             <option value='adventure'>Adventure</option>
@@ -35,12 +60,7 @@ const Featured = ({ type }) => {
           '
           alt=''
         />
-        <span className='desc'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis eum
-          molestiae libero? Explicabo nobis ex laborum sapiente ad numquam odio
-          vitae similique officiis molestiae, voluptatem expedita mollitia quasi
-          hic laboriosam?
-        </span>
+        <span className='desc'>{content.desc}</span>
         <div className='buttons'>
           <button className='play'>
             <PlayArrowIcon />

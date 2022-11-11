@@ -9,9 +9,11 @@ import {
   BrowserRouter as Router,
   Navigate,
 } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "./authContext/AuthContext";
 
 function App() {
-  const user = true;
+  const { user } = useContext(AuthContext);
   return (
     <Router>
       <Routes>
@@ -24,13 +26,10 @@ function App() {
           element={!user ? <Register /> : <Navigate to='/' />}
           path='/register'
         />
-        <Route
-          element={!user ? <Login /> : <Navigate to='/' />}
-          path='/login'
-        />
+        <Route element={<Login />} path='/login' />
         {user && (
           <>
-            <Route element={<Home type='movies' />} path='/movies' />
+            <Route element={<Home type='movie' />} path='/movies' />
             <Route element={<Home type='series' />} path='/series' />
             <Route element={<Watch />} path='/watch' />
           </>

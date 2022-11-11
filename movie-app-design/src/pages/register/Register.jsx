@@ -1,18 +1,37 @@
 import { useRef } from "react";
 import { useState } from "react";
 import "./register.scss";
-
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 const Register = () => {
   const [email, setEmail] = useState("");
   const emailRef = useRef();
   const [password, setPassword] = useState("");
   const passwordRef = useRef();
+  const [username, setUsername] = useState("");
+  const usernameRef = useRef();
+
+  const navigate = useNavigate();
 
   const handleStart = () => {
     setEmail(emailRef.current.value);
   };
-  const handleFinish = () => {
-    setPassword(passwordRef.current.value);
+  const handleFinish = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.post("http://localhost:8800/api/auth/register", {
+        email,
+        username,
+        password,
+      });
+
+      navigate("/login");
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className='register'>
@@ -23,7 +42,10 @@ const Register = () => {
             alt=''
             className='logo'
           />
-          <button className='loginButton'>Sign In</button>
+
+          <button className='loginButton' onClick={() => navigate("/login")}>
+            Sign In
+          </button>
         </div>
       </div>
       <div className='container'>
@@ -41,7 +63,18 @@ const Register = () => {
           </div>
         ) : (
           <form className='input'>
-            <input type='password' placeholder='Password' ref={passwordRef} />
+            <input
+              type='text'
+              placeholder='Username'
+              ref={usernameRef}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              type='password'
+              placeholder='Password'
+              ref={passwordRef}
+              onChange={(e) => setPassword(e.target.value)}
+            />
             <button className='registerButton' onClick={handleFinish}>
               Start
             </button>

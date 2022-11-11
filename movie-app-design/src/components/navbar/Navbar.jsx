@@ -4,9 +4,18 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../authContext/AuthContext";
+import { logout } from "../../authContext/AuthActions";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const { dispatch } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
   window.onscroll = () => {
     setIsScrolled(window.scrollY === 0 ? false : true);
     return () => window.onscroll == null;
@@ -23,10 +32,10 @@ const Navbar = () => {
             <span>Homepage</span>
           </Link>
           <Link to='/series' className='link'>
-            <span>Series</span>
+            <span className='navbarMainLinks'>Series</span>
           </Link>
           <Link to='/movies' className='link'>
-            <span>Movies</span>
+            <span className='navbarMainLinks'>Movies</span>
           </Link>
           <span>New and popular</span>
           <span>My List</span>
@@ -43,7 +52,7 @@ const Navbar = () => {
             <ArrowDropDownIcon className='icon' />
             <div className='options'>
               <span>Settings</span>
-              <span>Logout</span>
+              <span onClick={handleLogout}>Logout</span>
             </div>
           </div>
         </div>

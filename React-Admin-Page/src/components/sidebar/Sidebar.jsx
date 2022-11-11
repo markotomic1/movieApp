@@ -43,10 +43,12 @@ function Sidebar() {
                 Movies
               </li>
             </Link>
-            <li className='sidebarListItem'>
-              <TrendingUpIcon className='sidebarIcon' />
-              Transactions
-            </li>
+            <Link to='/lists' className='link'>
+              <li className='sidebarListItem'>
+                <TrendingUpIcon className='sidebarIcon' />
+                Lists
+              </li>
+            </Link>
             <li className='sidebarListItem'>
               <TrendingUpIcon className='sidebarIcon' />
               Reports

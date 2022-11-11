@@ -34,7 +34,7 @@ const ListItem = ({ index, item }) => {
   }, [item]);
   //console.log(movie);
   return (
-    <Link to={{ pathname: "/watch", state: { movie } }}>
+    <Link to={{ pathname: "/watch" }} state={{ movie }}>
       <div
         className='listItem'
         style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}

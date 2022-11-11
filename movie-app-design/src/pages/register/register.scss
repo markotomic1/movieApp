@@ -20,6 +20,9 @@
         height: 40px;
       }
       .loginButton {
+        z-index: 99;
+        cursor: pointer;
+        width: 100px;
         background-color: red;
         border: none;
         color: white;
@@ -27,7 +30,7 @@
         padding: 5px 15px;
         font-size: 16px;
         font-weight: 500;
-        cursor: pointer;
+        border-radius: 5px;
       }
     }
   }
